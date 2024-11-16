@@ -72,4 +72,4 @@ Este plugin es software de código abierto y está disponible bajo la licencia G
 ---
 
 **Soporte y Contacto:**  
-Si tienes preguntas o necesitas ayuda, por favor, contacta a través de [tu correo o sitio web]. 🚀
+Para más información, soporte o actualizaciones, visita nuestro sitio web: [WP Bsale Integration Support](https://espaciosvirtuales.cl). 🚀
