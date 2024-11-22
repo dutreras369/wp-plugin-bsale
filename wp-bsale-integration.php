@@ -14,9 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Definir constantes del plugin
 define( 'WP_BSALE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_BSALE_URL', plugin_dir_url( __FILE__ ) );
+define( 'WP_BSALE_TEMPLATES', WP_BSALE_DIR . 'templates/' );
+
 
 // Incluir archivos principales
 require_once WP_BSALE_DIR . 'includes/class-main.php';
+require_once WP_BSALE_DIR . 'includes/functions.php';
+
 
 // Inicializar el plugin
 function wp_bsale_init() {

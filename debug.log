@@ -1,0 +1,831 @@
+
+
+[21-Nov-2024 19:12:54 UTC] Printing Products: Array
+(
+    [0] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/227.json
+            [id] => 227
+            [name] =>    Chaqueta Chef Gabardina Unisex
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/27.json
+                    [id] => 27
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/227/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/227/product_taxes.json
+                )
+
+        )
+
+    [1] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/229.json
+            [id] => 229
+            [name] =>    Chaqueta Chef Gabardina Unisex
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 1
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/27.json
+                    [id] => 27
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/229/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/229/product_taxes.json
+                )
+
+        )
+
+    [2] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/472.json
+            [id] => 472
+            [name] => Adaptador Universal a Casco, Plástico Aluminio
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/50.json
+                    [id] => 50
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/472/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/472/product_taxes.json
+                )
+
+        )
+
+    [3] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/727.json
+            [id] => 727
+            [name] => ALARGADOR GRAFITO 4 TOMAS 1.5mt
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/37.json
+                    [id] => 37
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/727/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/727/product_taxes.json
+                )
+
+        )
+
+    [4] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/454.json
+            [id] => 454
+            [name] => AMORTIGUADOR DE CAÍDA CORTO
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/454/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/454/product_taxes.json
+                )
+
+        )
+
+    [5] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/453.json
+            [id] => 453
+            [name] => AMORTIGUADOR EN Y CINTA PLANA
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/453/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/453/product_taxes.json
+                )
+
+        )
+
+    [6] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/455.json
+            [id] => 455
+            [name] => AMORTIGUADOR EN Y CON CINTA TUBULAR
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/455/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/455/product_taxes.json
+                )
+
+        )
+
+    [7] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/1157.json
+            [id] => 1157
+            [name] => AMORTIGUADOR Y PLANA MOSQ ESC 1.8 M
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1157/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1157/product_taxes.json
+                )
+
+        )
+
+    [8] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/178.json
+            [id] => 178
+            [name] => Antiparra Lente Seguridad K-2 Af
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/40.json
+                    [id] => 40
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/178/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/178/product_taxes.json
+                )
+
+        )
+
+    [9] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/967.json
+            [id] => 967
+            [name] => Antiparra Lente Seguridad New Win Steelpro
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/40.json
+                    [id] => 40
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/967/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/967/product_taxes.json
+                )
+
+        )
+
+    [10] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/444.json
+            [id] => 444
+            [name] => ARNÉS 3 ARGOLLAS CON FAJA LUMBAR CONECTOR PECTORAL
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/444/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/444/product_taxes.json
+                )
+
+        )
+
+    [11] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/1159.json
+            [id] => 1159
+            [name] => ARNES 4 ARGOLLAS COBRA MIC PLUS
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1159/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1159/product_taxes.json
+                )
+
+        )
+
+    [12] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/446.json
+            [id] => 446
+            [name] => ARNÉS PARACAIDISTA 3 ARGOLLAS 
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/446/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/446/product_taxes.json
+                )
+
+        )
+
+    [13] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/443.json
+            [id] => 443
+            [name] => ARNÉS PARACAIDISTA 4 ARGOLLAS
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/49.json
+                    [id] => 49
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/443/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/443/product_taxes.json
+                )
+
+        )
+
+    [14] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/884.json
+            [id] => 884
+            [name] => Art EPP + Ferretería
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/37.json
+                    [id] => 37
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/884/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/884/product_taxes.json
+                )
+
+        )
+
+    [15] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/728.json
+            [id] => 728
+            [name] => ARVA DTS TRACKER
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/53.json
+                    [id] => 53
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/728/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/728/product_taxes.json
+                )
+
+        )
+
+    [16] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/795.json
+            [id] => 795
+            [name] => BALACLAVA HW HIBRID
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/37.json
+                    [id] => 37
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/795/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/795/product_taxes.json
+                )
+
+        )
+
+    [17] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/168.json
+            [id] => 168
+            [name] => Balaclava No Wind
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/35.json
+                    [id] => 35
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/168/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/168/product_taxes.json
+                )
+
+        )
+
+    [18] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/1790.json
+            [id] => 1790
+            [name] => Baliza 60 Led Ambar Apernada 12-48v Vortex
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/53.json
+                    [id] => 53
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1790/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1790/product_taxes.json
+                )
+
+        )
+
+    [19] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/720.json
+            [id] => 720
+            [name] => BANDANA HW HEAD WEAR
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/51.json
+                    [id] => 51
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/720/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/720/product_taxes.json
+                )
+
+        )
+
+    [20] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/1142.json
+            [id] => 1142
+            [name] => BARBIQUEJO CON MENTONERA
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/37.json
+                    [id] => 37
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1142/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1142/product_taxes.json
+                )
+
+        )
+
+    [21] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/610.json
+            [id] => 610
+            [name] => BARBIQUEJO DIELECTRICO
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/43.json
+                    [id] => 43
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/610/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/610/product_taxes.json
+                )
+
+        )
+
+    [22] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/544.json
+            [id] => 544
+            [name] => Barra Conectora De Conos Rojo - Blanco
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/53.json
+                    [id] => 53
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/544/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/544/product_taxes.json
+                )
+
+        )
+
+    [23] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/1755.json
+            [id] => 1755
+            [name] => BLUSA OFERTA
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/32.json
+                    [id] => 32
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1755/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/1755/product_taxes.json
+                )
+
+        )
+
+    [24] => Array
+        (
+            [href] => https://api.bsale.io/v1/products/290.json
+            [id] => 290
+            [name] => BLUSA OUTWORK ABELIA MUJER M/L
+            [description] => 
+            [classification] => 0
+            [ledgerAccount] => 
+            [costCenter] => 
+            [allowDecimal] => 0
+            [stockControl] => 1
+            [printDetailPack] => 0
+            [state] => 0
+            [prestashopProductId] => 0
+            [presashopAttributeId] => 0
+            [product_type] => Array
+                (
+                    [href] => https://api.bsale.io/v1/product_types/1.json
+                    [id] => 1
+                )
+
+            [variants] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/290/variants.json
+                )
+
+            [product_taxes] => Array
+                (
+                    [href] => https://api.bsale.io/v1/products/290/product_taxes.json
+                )
+
+        )
+
+)
+
