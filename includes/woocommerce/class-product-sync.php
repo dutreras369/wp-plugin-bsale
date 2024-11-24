@@ -2,7 +2,6 @@
 
 class Product_Sync
 {
-
     private $client;
 
     public function __construct()
@@ -12,8 +11,6 @@ class Product_Sync
 
     /**
      * Sincronizar productos desde la API de Bsale a WooCommerce.
-     *
-     * @return array Resultados de sincronización (éxitos y errores).
      */
     public function sync_products()
     {
@@ -22,218 +19,107 @@ class Product_Sync
             'failed' => [],
         ];
 
-        // Obtener productos desde la API
         $response = $this->client->get('v1/products.json');
 
-        // Manejar errores en la API
-        if (isset($response['error'])) {
+        if ($this->has_api_error($response)) {
             $results['failed'][] = [
-                'name' => __('API Response', 'wp-bsale-integration'),
-                'error' => $response['error'],
+                'name' => __('API Error', 'wp-bsale-integration'),
+                'error' => $response['error'] ?? __('Unknown error', 'wp-bsale-integration'),
             ];
-            error_log('API Error: ' . $response['error']);
             return $results;
         }
 
-        // Validar estructura de la respuesta
-        if (!isset($response['items']) || !is_array($response['items'])) {
-            $results['failed'][] = [
-                'name' => __('API Response', 'wp-bsale-integration'),
-                'error' => __('Invalid response format from Bsale API.', 'wp-bsale-integration'),
-            ];
-            error_log('Invalid API Response: ' . print_r($response, true));
-            return $results;
-        }
-
-        // Procesar solo el primer producto dentro del bucle
-        foreach ($response['items'] as $index => $product) {
-            if ($index > 0) {
-                break; // Solo procesar el primer producto
-            }
-
-            error_log('Processing Product: ' . print_r($product, true)); // Log del producto
-
+        foreach ($response['items'] as $product) {
             try {
-                $this->process_product($product); // Procesar y guardar el producto
+                $this->process_product($product);
                 $results['success'][] = $product['name'];
             } catch (Exception $e) {
                 $results['failed'][] = [
                     'name' => $product['name'] ?? __('Unknown Product', 'wp-bsale-integration'),
                     'error' => $e->getMessage(),
                 ];
-                error_log('Error saving product: ' . $e->getMessage());
+                error_log('Error syncing product: ' . $e->getMessage());
             }
-        }
-
-        // Si no hay productos, registrar un mensaje
-        if (empty($response['items'])) {
-            $results['failed'][] = [
-                'name' => __('No Product Found', 'wp-bsale-integration'),
-                'error' => __('No products were found in the API response.', 'wp-bsale-integration'),
-            ];
-            error_log('No product found in API response.');
         }
 
         return $results;
     }
 
-
     /**
-     * Función intermedia para imprimir productos antes en el log.
-     *
-     * @param array $response Lista de productos
+     * Procesar un producto individual.
      */
-
-    private function print_logs($response)
+    private function process_product($product_data)
     {
-
-        foreach ($response['items'] as $index => $product) {
-            error_log('Product: ' . print_r($product, true)); // Imprimir cada producto para depuración
-
-            // Procesar solo el primer producto
-            if ($index === 0) {
-                break;
-            }
-        }
-    }
-
-    /**
-     * Función intermedia para imprimir productos antes de procesarlos.
-     *
-     * @param array $products Lista de productos.
-     */
-    private function print_products($products)
-    {
-        error_log('Printing Products: ' . print_r($products, true)); // Registrar productos en el log
-
-        // Opcional: Mostrar en pantalla (útil para depuración en navegador)
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            echo '<pre>';
-            print_r($products);
-            echo '</pre>';
-        }
-    }
-
-    /**
-     * Procesar un producto individual y sincronizarlo.
-     */
-    private function process_product($product)
-    {
-        if (!isset($product['id'], $product['name'])) {
+        if (!isset($product_data['id'], $product_data['name'])) {
             throw new Exception(__('Invalid product data.', 'wp-bsale-integration'));
         }
 
-        // Determinar si el producto tiene variantes
-        if (!empty($product['variants']['href'])) {
-            $this->process_variants($product);
-        } else {
-            $this->create_or_update_simple_product($product);
-        }
-    }
-
-    /**
-     * Crear o actualizar un producto simple.
-     */
-    private function create_or_update_simple_product($product_data)
-    {
+        // Crear o actualizar el producto
         $product_id = wc_get_product_id_by_sku($product_data['id']);
-
-        if ($product_id) {
-            $product = wc_get_product($product_id);
-        } else {
-            $product = new WC_Product();
-        }
-
-        $product->set_name($product_data['name']);
-        $product->set_sku($product_data['id']);
-        $product->set_regular_price($product_data['price'] ?? '0');
-        $product->set_stock_quantity($product_data['stock'] ?? 0);
-        $product->save();
-    }
-
-    /**
-     * Crear o actualizar un producto variable y sus variantes.
-     */
-    /**
-     * Procesar las variantes de un producto.
-     */
-    private function process_variants($product_data)
-    {
-        // Obtener el ID del producto en WooCommerce por SKU
-        $product_id = wc_get_product_id_by_sku($product_data['id']);
-
-        if ($product_id) {
-            $product = wc_get_product($product_id);
-        } else {
-            $product = new WC_Product_Variable();
-        }
+        $product = $product_id ? wc_get_product($product_id) : new WC_Product_Variable();
 
         $product->set_name($product_data['name']);
         $product->set_sku($product_data['id']);
         $product->save();
 
-        // Obtener las variantes desde la API
-        $variants_response = $this->client->get($product_data['variants']['href']);
-
-        // Verificar si la respuesta es un array
-        if (!is_array($variants_response) || !isset($variants_response['items'])) {
-            throw new Exception(__('Invalid variants data: Missing "items".', 'wp-bsale-integration'));
+        // Sincronizar variaciones
+        if (!empty($product_data['variants']['href'])) {
+            $this->sync_variations($product->get_id(), $product_data['variants']['href']);
         }
-
-        // Procesar las variantes
-        $this->sync_variations($product->get_id(), $variants_response['items']);
     }
 
     /**
-     * Sincronizar las variaciones de un producto.
+     * Sincronizar variaciones con WooCommerce.
      */
-    private function sync_variations($parent_id, $variations)
+    private function sync_variations($parent_id, $variants_href)
     {
-        foreach ($variations as $variation_data) {
-            // Validar datos de la variación
-            if (!isset($variation_data['id'], $variation_data['price'])) {
-                error_log('Invalid variation data: ' . print_r($variation_data, true));
-                continue; // Saltar esta variación
-            }
+        $response = $this->client->get($variants_href);
 
-            $variation_id = $this->get_variation_by_sku($variation_data['id'], $parent_id);
+        if ($this->has_api_error($response)) {
+            throw new Exception(__('Failed to fetch variants.', 'wp-bsale-integration'));
+        }
 
-            if ($variation_id) {
-                $variation = new WC_Product_Variation($variation_id);
-            } else {
-                $variation = new WC_Product_Variation();
+        foreach ($response['items'] as $variation_data) {
+            try {
+                $variation_id = $this->get_variation_by_sku($variation_data['id'], $parent_id);
+                $variation = $variation_id ? new WC_Product_Variation($variation_id) : new WC_Product_Variation();
+
                 $variation->set_parent_id($parent_id);
+                $variation->set_sku($variation_data['id']);
+                $variation->set_regular_price($this->get_variant_cost($variation_data['costs']['href']));
+                $variation->set_stock_quantity($variation_data['unlimitedStock'] ? null : ($variation_data['availableStock'] ?? 0));
+
+                $attributes = $this->parse_attributes_from_description($variation_data['description']);
+                $this->set_variation_attributes($variation, $attributes);
+
+                $variation->save();
+            } catch (Exception $e) {
+                error_log('Error processing variation: ' . $e->getMessage());
             }
-
-            $variation->set_sku($variation_data['id']);
-            $variation->set_regular_price($variation_data['price']);
-            $variation->set_stock_quantity($variation_data['stock'] ?? 0);
-
-            if (!empty($variation_data['attributes'])) {
-                $this->set_variation_attributes($variation, $variation_data['attributes']);
-            }
-
-            $variation->save();
         }
     }
 
     /**
-     * Obtener el ID de una variación existente por SKU.
+     * Obtener el costo promedio de una variación.
      */
-    private function get_variation_by_sku($sku, $parent_id)
+    private function get_variant_cost($costs_href)
     {
-        global $wpdb;
+        $response = $this->client->get($costs_href);
+        return $response['averageCost'] ?? '0';
+    }
 
-        $variation_id = $wpdb->get_var($wpdb->prepare("
-        SELECT post_id
-        FROM {$wpdb->postmeta}
-        WHERE meta_key = '_sku' AND meta_value = %s
-        AND post_id IN (
-            SELECT ID FROM {$wpdb->posts} WHERE post_parent = %d AND post_type = 'product_variation'
-        )
-    ", $sku, $parent_id));
-
-        return $variation_id;
+    /**
+     * Parsear atributos desde la descripción.
+     */
+    private function parse_attributes_from_description($description)
+    {
+        $attributes = [];
+        $parts = explode('/', $description);
+        if (count($parts) === 2) {
+            $attributes['Color'] = trim($parts[0]);
+            $attributes['Talla'] = trim($parts[1]);
+        }
+        return $attributes;
     }
 
     /**
@@ -244,10 +130,10 @@ class Product_Sync
         $attr_data = [];
 
         foreach ($attributes as $attr_name => $attr_value) {
-            $taxonomy = 'pa_' . sanitize_title($attr_name);
+            $taxonomy = $this->ensure_attribute_registered($attr_name);
 
-            if (!taxonomy_exists($taxonomy)) {
-                $this->register_product_attribute($attr_name);
+            if (!term_exists($attr_value, $taxonomy)) {
+                wp_insert_term($attr_value, $taxonomy);
             }
 
             $attr_data[$taxonomy] = $attr_value;
@@ -257,24 +143,63 @@ class Product_Sync
     }
 
     /**
-     * Registrar un atributo de producto en WooCommerce.
+     * Registrar atributos en WooCommerce.
      */
-    private function register_product_attribute($name)
+    private function ensure_attribute_registered($attribute_name)
     {
         global $wpdb;
 
-        $attribute_name = sanitize_title($name);
+        $taxonomy = 'pa_' . sanitize_title($attribute_name);
 
-        if ($wpdb->get_var("SELECT attribute_id FROM {$wpdb->prefix}woocommerce_attribute_taxonomies WHERE attribute_name = '$attribute_name'") === null) {
-            $wpdb->insert("{$wpdb->prefix}woocommerce_attribute_taxonomies", [
-                'attribute_name' => $attribute_name,
-                'attribute_label' => $name,
-                'attribute_type' => 'select',
-                'attribute_orderby' => 'menu_order',
-                'attribute_public' => 0,
-            ]);
-
-            wp_cache_delete('woocommerce-attributes', 'woocommerce');
+        if (taxonomy_exists($taxonomy)) {
+            return $taxonomy;
         }
+
+        $wpdb->insert("{$wpdb->prefix}woocommerce_attribute_taxonomies", [
+            'attribute_name' => sanitize_title($attribute_name),
+            'attribute_label' => $attribute_name,
+            'attribute_type' => 'select',
+            'attribute_orderby' => 'menu_order',
+            'attribute_public' => 0,
+        ]);
+
+        wp_cache_delete('woocommerce-attributes', 'woocommerce');
+        register_taxonomy($taxonomy, 'product', [
+            'hierarchical' => false,
+            'labels' => ['name' => $attribute_name],
+            'show_ui' => false,
+            'query_var' => true,
+            'rewrite' => false,
+        ]);
+
+        return $taxonomy;
+    }
+
+    /**
+     * Verificar errores en la respuesta de la API.
+     */
+    private function has_api_error($response)
+    {
+        return !is_array($response) || isset($response['error']);
+    }
+
+    /**
+     * Obtener una variación por SKU.
+     */
+    private function get_variation_by_sku($sku, $parent_id)
+    {
+        global $wpdb;
+
+        $query = $wpdb->prepare("
+            SELECT post_id
+            FROM {$wpdb->postmeta}
+            WHERE meta_key = '_sku' AND meta_value = %s
+            AND post_id IN (
+                SELECT ID FROM {$wpdb->posts}
+                WHERE post_parent = %d AND post_type = 'product_variation'
+            )
+        ", $sku, $parent_id);
+
+        return $wpdb->get_var($query);
     }
 }

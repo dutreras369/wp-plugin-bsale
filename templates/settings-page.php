@@ -22,12 +22,12 @@
     <!-- Sección de Sincronización -->
     <div class="bsale-sync-section">
         <h2 class="section-title"><?php _e('Product Synchronization', 'wp-bsale-integration'); ?></h2>
-        <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
-            <?php wp_nonce_field('bsale_sync_action', 'bsale_sync_nonce'); ?>
-            <input type="hidden" name="action" value="bsale_sync_products">
-            <p><?php _e('Start synchronizing your products from Bsale to WooCommerce.', 'wp-bsale-integration'); ?></p>
-            <?php submit_button(__('Start Synchronization', 'wp-bsale-integration'), 'secondary'); ?>
-        </form>
-
+        <button id="bsale-sync-button" class="button button-secondary">
+            <?php _e('Start Synchronization', 'wp-bsale-integration'); ?>
+        </button>
+        <div id="bsale-sync-results" style="margin-top: 20px;">
+            <!-- Los resultados se mostrarán aquí dinámicamente -->
+        </div>
     </div>
+
 </div>

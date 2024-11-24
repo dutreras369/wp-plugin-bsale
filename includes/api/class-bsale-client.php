@@ -11,17 +11,20 @@ class Bsale_Client {
     /**
      * Método para realizar una solicitud GET.
      *
-     * @param string $endpoint Endpoint de la API.
+     * @param string $endpoint Endpoint o URL completa de la API.
      * @return array|string Respuesta decodificada o mensaje de error.
      */
     public function get($endpoint) {
+        // Manejar URLs absolutas o relativas
+        $url = (strpos($endpoint, 'http') === 0) ? $endpoint : $this->api_url . ltrim($endpoint, '/');
+
         if (empty($this->token)) {
             return [
                 'error' => __('API Token is missing. Please configure it in settings.', 'wp-bsale-integration'),
             ];
         }
 
-        $response = wp_remote_get($this->api_url . $endpoint, [
+        $response = wp_remote_get($url, [
             'headers' => [
                 'Access_token' => $this->token,
                 'Content-Type' => 'application/json',
@@ -47,4 +50,14 @@ class Bsale_Client {
 
         return json_decode(wp_remote_retrieve_body($response), true);
     }
+
+    /**
+     * Obtener la URL base de la API.
+     *
+     * @return string URL base de la API.
+     */
+    public function get_api_url() {
+        return $this->api_url;
+    }
 }
+
